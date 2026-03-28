@@ -1,0 +1,11 @@
+inbound:
+  process_definitions:
+    start_vars:
+      - name
+      - edrpou
+    return_vars:
+      - laboratoryId
+      - edrpou
+      - accreditationFlag
+      - name
+      - accreditationEndDate

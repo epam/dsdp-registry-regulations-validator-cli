@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "request": {
+            "type": "object"
+          },
+          "response": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "request", "response"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "mappings"
+  ]
+}

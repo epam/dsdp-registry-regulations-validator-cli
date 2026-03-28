@@ -1,0 +1,5 @@
+roles:
+  - name: Duplicated-role
+    description: Officer role
+  - name: Duplicated-role
+    description: Dispatcher role

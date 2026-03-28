@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: registry-regulations-validator-cli
+  main:
+    web-application-type: none
+    banner-mode: off
+    log-startup-info: off
+liquibase:
+  secureParsing: false
+javax:
+  xml:
+    accessExternalSchema: all
+
+element-template-path: '/var/lib/business-process-modeller-extensions/business-process-modeler-element-templates.json'
+officer-permissions-file: 'officer.yml'
+default-roles: 'officer, citizen, unregistered-individual, 
+                unregistered-entrepreneur, unregistered-legal, 
+                unregistered-officer, entrepreneur, legal, individual, trembita-invoker,
+                admin, auditor'

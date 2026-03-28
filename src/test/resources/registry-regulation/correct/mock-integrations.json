@@ -1,0 +1,22 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "urlPath": "/mock",
+        "method": "POST"
+      },
+      "response": {
+        "status": 200,
+        "body": "{}",
+        "headers": {
+          "Content-Type": "text/xml"
+        },
+        "transformers": [
+          "response-template",
+          "body-transformer"
+        ]
+      },
+      "someExtraField": {}
+    }
+  ]
+}

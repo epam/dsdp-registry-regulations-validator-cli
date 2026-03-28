@@ -1,0 +1,22 @@
+inbound:
+  process_definitions:
+    - process_definition_id: 'get-lab-accreditation-info'
+      start_vars:
+        - name
+        - edrpou
+      return_vars:
+        - laboratoryId
+        - edrpou
+        - accreditationFlag
+        - name
+        - accreditationEndDate
+    - process_definition_id: 'get-lab-accreditation-info'
+      start_vars:
+        - name
+        - edrpou
+      return_vars:
+        - laboratoryId
+        - edrpou
+        - accreditationFlag
+        - name
+        - accreditationEndDate

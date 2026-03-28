@@ -1,0 +1,10 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "urlPath": "/mock",
+        "method": "POST"
+      }
+    }
+  ]
+}

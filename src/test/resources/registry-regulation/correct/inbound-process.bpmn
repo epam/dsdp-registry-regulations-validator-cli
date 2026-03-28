@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_01vo1un" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.6.0">
+  <bpmn:process id="get-lab-accreditation-info" name="Отримати інформацію про акредитацію лабораторії" isExecutable="true">
+    <bpmn:startEvent id="start_event" name="start" camunda:initiator="initiator">
+      <bpmn:outgoing>Flow_0vm8qnn</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0vm8qnn" sourceRef="start_event" targetRef="Activity_1vvgc9n" />
+    <bpmn:serviceTask id="Activity_1vvgc9n" name="Знайти id лабораторії" camunda:modelerTemplate="dataFactoryConnectorSearchDelegate" camunda:delegateExpression="${dataFactoryConnectorSearchDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="resource">laboratory-start-with-edrpou-contains-name</camunda:inputParameter>
+          <camunda:inputParameter name="searchConditions">
+            <camunda:map>
+              <camunda:entry key="name">${submission('start_event').formData.prop('name').value()}</camunda:entry>
+              <camunda:entry key="edrpou">${submission('start_event').formData.prop('edrpou').value()}</camunda:entry>
+            </camunda:map>
+          </camunda:inputParameter>
+          <camunda:inputParameter name="x_access_token_task_definition_key">initiator_token_saving</camunda:inputParameter>
+          <camunda:inputParameter name="x_access_token">${initiator().accessToken}</camunda:inputParameter>
+          <camunda:outputParameter name="searchLabResponse">${ response }</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0vm8qnn</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qp5alm</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0qp5alm" sourceRef="Activity_1vvgc9n" targetRef="Activity_0kl78mw" />
+    <bpmn:scriptTask id="Activity_17pxq25" name="Отримати значення акредитації з лабораторії" scriptFormat="groovy">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="laboratoryId">${laboratoryId}</camunda:outputParameter>
+          <camunda:outputParameter name="edrpou">${edrpou}</camunda:outputParameter>
+          <camunda:outputParameter name="accreditationFlag">${accreditationFlag}</camunda:outputParameter>
+          <camunda:outputParameter name="name">${name}</camunda:outputParameter>
+          <camunda:outputParameter name="accreditationEndDate">${accreditationEndDate}</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0lzsnfg</bpmn:incoming>
+      <bpmn:outgoing>Flow_10yv2xp</bpmn:outgoing>
+      <bpmn:script>def laboratory = response.responseBody
+
+['laboratoryId','edrpou', 'accreditationFlag', 'name', 'accreditationEndDate'].each {
+  execution.setVariable(it, laboratory.prop(it).value())
+}</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="Flow_0lzsnfg" sourceRef="Activity_0kl78mw" targetRef="Activity_17pxq25" />
+    <bpmn:serviceTask id="Activity_0kl78mw" name="Знайти інформацію про лабораторію" camunda:modelerTemplate="dataFactoryConnectorReadDelegate" camunda:delegateExpression="${dataFactoryConnectorReadDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="resource">laboratory</camunda:inputParameter>
+          <camunda:inputParameter name="id">${searchLabResponse.value.responseBody.elements()[0].prop('laboratoryId').value()}</camunda:inputParameter>
+          <camunda:inputParameter name="x_access_token_task_definition_key">initiator_token_saving</camunda:inputParameter>
+          <camunda:inputParameter name="x_access_token">${initiator().accessToken}</camunda:inputParameter>
+          <camunda:outputParameter name="response">${ response }</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0qp5alm</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lzsnfg</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_1c8onzv" name="end">
+      <bpmn:incoming>Flow_10yv2xp</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_10yv2xp" sourceRef="Activity_17pxq25" targetRef="Event_1c8onzv" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="get-lab-accreditation-info">
+      <bpmndi:BPMNEdge id="Flow_10yv2xp_di" bpmnElement="Flow_10yv2xp">
+        <di:waypoint x="700" y="117" />
+        <di:waypoint x="762" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lzsnfg_di" bpmnElement="Flow_0lzsnfg">
+        <di:waypoint x="540" y="117" />
+        <di:waypoint x="600" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0qp5alm_di" bpmnElement="Flow_0qp5alm">
+        <di:waypoint x="380" y="117" />
+        <di:waypoint x="440" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vm8qnn_di" bpmnElement="Flow_0vm8qnn">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="280" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start_event">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="186" y="142" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1l5d9wx_di" bpmnElement="Activity_1vvgc9n">
+        <dc:Bounds x="280" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0yw84pw_di" bpmnElement="Activity_17pxq25">
+        <dc:Bounds x="600" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_066riw3_di" bpmnElement="Activity_0kl78mw">
+        <dc:Bounds x="440" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1c8onzv_di" bpmnElement="Event_1c8onzv">
+        <dc:Bounds x="762" y="99" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="771" y="142" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

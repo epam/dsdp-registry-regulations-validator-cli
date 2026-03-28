@@ -1,0 +1,11 @@
+external-systems:
+  system1:
+    operations:
+      create-system:
+        resource-path: /post
+        method: POST
+  system2:
+    operations:
+      get-damaged-property:
+        resource-path: /api/get
+        method: GET

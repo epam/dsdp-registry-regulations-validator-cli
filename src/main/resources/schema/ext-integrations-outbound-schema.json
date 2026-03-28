@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "external-systems": {
+      "$ref": "#/$defs/external-systems"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "external-systems": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/external-system"
+      }
+    },
+    "external-system": {
+      "type": "object",
+      "properties": {
+        "operations": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "$ref": "#/$defs/external-system-method"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "external-system-method": {
+      "type": "object",
+      "properties": {
+        "resource-path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "type": "string",
+          "enum": [
+            "GET",
+            "HEAD",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE",
+            "OPTIONS",
+            "TRACE"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "resource-path",
+        "method"
+      ]
+    }
+  }
+}

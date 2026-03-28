@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2023 EPAM Systems.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    https://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1g6pew6" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="Process_1ml462j" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_13f24am</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_0kw3q4XF" name="task" camunda:modelerTemplate="formUserTaskTemplate" camunda:formKey="ui-form">
+      <bpmn:incoming>Flow_1m95zsb11</bpmn:incoming>
+      <bpmn:outgoing>Flow_10ytamg22</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_13f24am" sourceRef="StartEvent_1" targetRef="Activity_058k02y" />
+    <bpmn:serviceTask id="Activity_058k02y" name="Modeler template with duplicates" camunda:modelerTemplate="testTemplate" camunda:delegateExpression="sss">
+      <bpmn:extensionElements>
+        <camunda:in sourceExpression="some2" target="camundaInWithoutConstraint" />
+        <camunda:in sourceExpression="some" target="camundaInWithoutConstraint" />
+        <camunda:in sourceExpression="someExpression" target="camundaInWithConstraint" />
+        <camunda:out source="camundaOutWithoutConstraint" target="" />
+        <camunda:out source="camundaOutWithConstraint" target="someTarget" />
+        <camunda:inputOutput>
+          <camunda:inputParameter name="camundaInputParameterWithoutConstraint" />
+          <camunda:inputParameter name="camundaInputParameterWithConstraint">someInput</camunda:inputParameter>
+          <camunda:inputParameter name="table">someInput</camunda:inputParameter>
+          <camunda:inputParameter name="compositeEntity">someInput</camunda:inputParameter>
+          <camunda:inputParameter name="partialUpdateEntity">someInput</camunda:inputParameter>
+          <camunda:inputParameter name="externalSystemName">someInput</camunda:inputParameter>
+          <camunda:inputParameter name="externalSystemOperationName">someInput</camunda:inputParameter>
+          <camunda:inputParameter name="excerptName">someInput</camunda:inputParameter>
+          <camunda:inputParameter name="notificationName">someInput</camunda:inputParameter>
+          <camunda:outputParameter name="">camundaOutputParameterWithoutConstraint</camunda:outputParameter>
+          <camunda:outputParameter name="someName">camundaOutputParameterWithConstraint</camunda:outputParameter>
+        </camunda:inputOutput>
+        <camunda:properties>
+          <camunda:property name="camundaPropertyWithoutConstraint" value="" />
+          <camunda:property name="camundaPropertyWithConstraint" value="NotExistingProcessId" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_13f24am</bpmn:incoming>
+      <bpmn:outgoing>Flow_0dbpmpw</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0dbpmpw" sourceRef="Activity_058k02y" targetRef="Activity_1sdfobu" />
+    <bpmn:serviceTask id="Activity_1sdfobu" name="Correct modeler template" camunda:modelerTemplate="testTemplate" camunda:delegateExpression="">
+      <bpmn:extensionElements>
+        <camunda:in sourceExpression="" target="camundaInWithConstraint" />
+        <camunda:inputOutput>
+          <camunda:inputParameter name="camundaInputParameterWithConstraint"></camunda:inputParameter>
+          <camunda:outputParameter name="">camundaOutputParameterWithConstraint</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0dbpmpw</bpmn:incoming>
+      <bpmn:outgoing>Flow_0alp5ih</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_11or0jx">
+      <bpmn:incoming>Flow_0alp5ih</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0alp5ih" sourceRef="Activity_1sdfobu" targetRef="Event_11or0jx" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ml462j">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1i6h9es_di" bpmnElement="Activity_058k02y">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13lkthl_di" bpmnElement="Activity_1sdfobu">
+        <dc:Bounds x="440" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_11or0jx_di" bpmnElement="Event_11or0jx">
+        <dc:Bounds x="602" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_13f24am_di" bpmnElement="Flow_13f24am">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dbpmpw_di" bpmnElement="Flow_0dbpmpw">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="440" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0alp5ih_di" bpmnElement="Flow_0alp5ih">
+        <di:waypoint x="540" y="117" />
+        <di:waypoint x="602" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

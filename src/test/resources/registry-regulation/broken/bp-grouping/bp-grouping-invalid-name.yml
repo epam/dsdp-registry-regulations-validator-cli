@@ -1,0 +1,4 @@
+groups:
+  - name: Тестове-ім'я (опис#)
+    processDefinitions:
+      - first-process-group

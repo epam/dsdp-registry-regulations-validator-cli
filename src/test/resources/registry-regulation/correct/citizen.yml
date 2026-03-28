@@ -1,0 +1,13 @@
+roles:
+#  feature roles
+  - name: cp-regression
+    description: Available all business processes
+  - name: cp-layouts
+    description: Available layouts business processes
+  - name: cp-sorting
+    description: Available sorting business processes
+  - name: citizen
+    description: Role for citizen portal for user settings validation
+# reference roles
+  - name: cp-reference
+    description: Available all reference business processes

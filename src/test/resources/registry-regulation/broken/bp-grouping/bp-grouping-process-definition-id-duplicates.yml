@@ -1,0 +1,6 @@
+groups:
+  - name: Тестове-ім'я № 1
+    processDefinitions:
+      - first-process-group
+ungrouped:
+  - first-process-group

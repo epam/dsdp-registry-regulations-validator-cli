@@ -1,0 +1,21 @@
+external-systems:
+  system1:
+    url: http://url
+    methods:
+      get:
+        path: /get
+        method: GET
+    auth:
+      type: BASIC
+      secret-name: system1-basic-auth
+  system2:
+    url: https://url
+    methods:
+      get-damaged-property:
+        path: /api/get
+        method: GET
+    auth:
+      type: PARTNER_TOKEN
+      secret-name: secret2
+      partner-token-auth-url: https://url
+      token-json-path: $.token

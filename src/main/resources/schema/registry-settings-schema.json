@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "settings": {
+      "type": "object",
+      "properties": {
+        "general": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": ["string", "null"],
+              "pattern": "^[A-Za-zА-ЩЬЮЯҐЄІЇа-щьюяґєії][A-Za-zА-ЩЬЮЯҐЄІЇа-щьюяґєії0-9 '`‘’,.\\\\-]*$",
+              "minLength": 1,
+              "maxLength": 42
+            },
+            "titleFull": {
+              "type": ["string", "null"],
+              "pattern": "^[A-Za-zА-ЩЬЮЯҐЄІЇа-щьюяґєії]{3}[A-Za-zА-ЩЬЮЯҐЄІЇа-щьюяґєії0-9 '`‘’,.\\\\-]*$",
+              "minLength": 3,
+              "maxLength": 512
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "titleFull"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "general"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "settings"
+  ]
+}

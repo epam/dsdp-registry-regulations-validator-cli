@@ -1,0 +1,18 @@
+authorization:
+  realm: 'citizen'
+  process_definitions:
+    - process_definition_id: 'bpmn-1'
+      process_name: 'Bpmn with individual sign task'
+      process_description: 'Bpmn with individual sign task'
+      roles:
+        - individual
+    - process_definition_id: 'bpmn-2'
+      process_name: 'Bpmn with custom role'
+      process_description: 'Bpmn with custom role'
+      roles:
+        - my-role
+    - process_definition_id: 'bpmn-3'
+      process_name: 'Bpmn with all validation packages sign task'
+      process_description: 'Bpmn with all validation packages sign task'
+      roles:
+        - citizen

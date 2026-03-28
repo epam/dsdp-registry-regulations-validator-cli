@@ -1,0 +1,8 @@
+authorization:
+  realm: 'citizen'
+  process_definitions:
+    - process_definition_id: 'test-bp'
+      process_name: 'Bpmn with all roles activated in sign task'
+      process_description: 'Bpmn with all roles activated in sign task'
+      roles:
+        - citizen

@@ -1,0 +1,5 @@
+groups:
+  - name: Тес—то–ве-ім'я № 1/4:(опис);
+    processDefinitions: []
+ungrouped:
+  - second-process-group

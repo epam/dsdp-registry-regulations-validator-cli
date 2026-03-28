@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "realm": {
+      "type": "string",
+      "enum": [
+        "officer",
+        "citizen",
+        "external-system"
+      ]
+    },
+    "roles": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "name"
+          ]
+        }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "roles"
+  ]
+}

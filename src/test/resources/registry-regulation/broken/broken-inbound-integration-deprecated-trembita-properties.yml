@@ -1,0 +1,13 @@
+trembita:
+  process_definitions:
+    - process_definition_id: 'get-lab-accreditation-info'
+      requires_signature: false
+      start_vars:
+        - name
+        - edrpou
+      return_vars:
+        - laboratoryId
+        - edrpou
+        - accreditationFlag
+        - name
+        - accreditationEndDate

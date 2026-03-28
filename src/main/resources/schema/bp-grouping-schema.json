@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[A-Za-zА-ЩЬЮЯҐЄІЇа-щьюяґєії0-9 '`‘’()—–/:;№,.\\\\-]+$",
+            "minLength": 3,
+            "maxLength": 512
+          },
+          "processDefinitions": {
+            "type": "array",
+            "minItems": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      }
+    },
+    "ungrouped": {
+      "type": "array",
+      "minItems": 0,
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "groups"
+  ]
+}

@@ -1,0 +1,6 @@
+authorization:
+  realm: 'officer'
+  process_definitions:
+    - process_defiinition_id: 'add-lab'
+      process_name: 'Створення лабораторії'
+      process_description: 'Регламент для створення лабораторій'

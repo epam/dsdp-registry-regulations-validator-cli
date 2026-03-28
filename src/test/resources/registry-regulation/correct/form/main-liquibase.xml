@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://nexus-ce-ci.amdd-azd.projects.epam.com/repository/extensions/com/epam/digital/data/platform/dbchangelog/4.5/dbchangelog-4.5.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext https://nexus-ce-ci.amdd-azd.projects.epam.com/repository/extensions/com/epam/digital/data/platform/liquibase-ext-schema/latest/liquibase-ext-schema-latest.xsd">
+
+  <changeSet id="1" author="vc">
+    <comment>CREATE search condition find-all</comment>
+    <ext:createSearchCondition name="find_all" limit="all">
+      <ext:table name="test">
+        <ext:column name="id"/>
+      </ext:table>
+    </ext:createSearchCondition>
+  </changeSet>
+
+  <changeSet author="registry owner" id="create SC person_profile_equal_last_name">
+    <ext:createSearchCondition name="person_profile_equal_last_name">
+      <ext:table name="person_profile" alias="s">
+        <ext:column name="person_profile_id"/>
+      </ext:table>
+    </ext:createSearchCondition>
+  </changeSet>
+
+</databaseChangeLog>

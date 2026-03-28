@@ -1,0 +1,9 @@
+settings:
+  general:
+      register: "dbNameMoreThan31symbol3456789012"
+      version: "1.2..3"
+      package: "aa.1bb.default"
+  kafka:
+      retention-policy-in-days:
+        read: 20
+        write: 20

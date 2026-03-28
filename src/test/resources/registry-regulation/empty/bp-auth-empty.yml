@@ -1,0 +1,3 @@
+authorization:
+  realm: 'officer'
+  process_definitions: [ ]

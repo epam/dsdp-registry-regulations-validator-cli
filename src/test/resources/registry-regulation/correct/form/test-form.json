@@ -1,0 +1,110 @@
+{
+  "display": "form",
+  "components": [
+    {
+      "label": "test",
+      "labelPosition": "top",
+      "placeholder": "",
+      "description": "",
+      "tooltip": "",
+      "tabindex": "",
+      "hidden": false,
+      "disabled": true,
+      "multiple": false,
+      "dataSrc": "url",
+      "data": {
+        "values": [
+          {
+            "label": "",
+            "value": ""
+          }
+        ],
+        "resource": "",
+        "json": "",
+        "url": "/api/data-factory/find-all",
+        "headers": [
+          {
+            "key": "",
+            "value": ""
+          }
+        ],
+        "custom": ""
+      },
+      "idPath": "id",
+      "valueProperty": "test",
+      "refreshOn": "",
+      "refreshOnBlur": "",
+      "clearOnRefresh": false,
+      "clearOnHide": true,
+      "customDefaultValue": "",
+      "calculateValue": "",
+      "allowCalculateOverride": false,
+      "validateOn": "change",
+      "validate": {
+        "required": true,
+        "customMessage": "",
+        "custom": "",
+        "customPrivate": false,
+        "json": "",
+        "strictDateValidation": false,
+        "multiple": false,
+        "unique": false
+      },
+      "key": "parentUnit",
+      "customConditional": "",
+      "conditional": {
+        "json": "",
+        "eq": ""
+      },
+      "attributes": {},
+      "overlay": {
+        "style": "",
+        "page": "",
+        "left": "",
+        "top": "",
+        "width": "",
+        "height": ""
+      },
+      "tableView": false,
+      "customColumnWidth": false,
+      "sortAsNumber": false,
+      "type": "selectLatest",
+      "indexeddb": {
+        "filter": {}
+      },
+      "lazyLoad": false,
+      "withCredentials": false,
+      "disableLimit": false,
+      "limit": 100,
+      "redrawOn": "",
+      "input": true,
+      "customClass": "",
+      "id": "e3fcg2u",
+      "prefix": "",
+      "suffix": "",
+      "protected": false,
+      "unique": false,
+      "persistent": true,
+      "modalEdit": false,
+      "dataGridLabel": false,
+      "errorLabel": "",
+      "hideLabel": false,
+      "autofocus": false,
+      "dbIndex": false,
+      "calculateServer": false,
+      "encrypted": false,
+      "showCharCount": false,
+      "showWordCount": false,
+      "properties": {},
+      "allowMultipleMasks": false,
+      "defaultValue": {},
+      "selectValues": "",
+      "searchField": "",
+      "filter": "",
+      "customFilter": ""
+    }
+  ],
+  "name": "test-form",
+  "path": "test-form",
+  "title": "test-form"
+}

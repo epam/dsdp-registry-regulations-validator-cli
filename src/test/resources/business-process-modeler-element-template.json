@@ -1,0 +1,213 @@
+[
+  {
+    "name": "Test template",
+    "id": "testTemplate",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "label": "Property w/o constraint",
+        "binding": {
+          "type": "property",
+          "name": "camunda:asyncBefore"
+        }
+      },
+      {
+        "label": "Property with constraint",
+        "binding": {
+          "type": "property",
+          "name": "camunda:delegateExpression"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "Camunda property w/o constraint",
+        "binding": {
+          "type": "camunda:property",
+          "name": "camundaPropertyWithoutConstraint"
+        }
+      },
+      {
+        "label": "Camunda property with constraint",
+        "binding": {
+          "type": "camunda:property",
+          "name": "camundaPropertyWithConstraint"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "type": "process.id"
+        }
+      },
+      {
+        "label": "Camunda in w/o constraint",
+        "binding": {
+          "type": "camunda:in",
+          "target": "camundaInWithoutConstraint"
+        }
+      },
+      {
+        "label": "Camunda in with constraint",
+        "binding": {
+          "type": "camunda:in",
+          "target": "camundaInWithConstraint"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "Camunda out w/o constraint",
+        "binding": {
+          "type": "camunda:out",
+          "source": "camundaOutWithoutConstraint"
+        }
+      },
+      {
+        "label": "Camunda out with constraint",
+        "binding": {
+          "type": "camunda:out",
+          "source": "camundaOutWithConstraint"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "Camunda input parameter w/o constraint",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "camundaInputParameterWithoutConstraint"
+        }
+      },
+      {
+        "label": "Camunda input parameter with constraint",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "camundaInputParameterWithConstraint"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "type": "role.name"
+        }
+      },
+      {
+        "label": "Camunda input parameter with constraint",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "table"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "type": "table.rest-api-name"
+        }
+      },
+      {
+        "label": "Camunda input parameter with constraint",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "compositeEntity"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "type": "composite-entity.rest-api-name"
+        }
+      },
+      {
+        "label": "Camunda input parameter with constraint",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "partialUpdateEntity"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "type": "partial-update.rest-api-name"
+        }
+      },
+      {
+        "label": "Camunda input parameter with constraint",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "externalSystemName"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "type": "external-system.name"
+        }
+      },
+      {
+        "label": "Camunda input parameter with constraint",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "externalSystemOperationName"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "type": "external-system.operation.name"
+        }
+      },
+      {
+        "label": "Camunda input parameter with constraint",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "excerptName"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "type": "excerpt.name"
+        }
+      },
+      {
+        "label": "Camunda input parameter with constraint",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "notificationName"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "type": "notification.template.name"
+        }
+      },
+      {
+        "label": "Camunda output parameter w/o constraint",
+        "binding": {
+          "type": "camunda:outputParameter",
+          "source": "camundaOutputParameterWithoutConstraint"
+        }
+      },
+      {
+        "label": "Camunda input parameter with constraint",
+        "binding": {
+          "type": "camunda:outputParameter",
+          "source": "camundaOutputParameterWithConstraint"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      }
+    ]
+  },
+  {
+    "name": "Test User Task template",
+    "id": "formUserTaskTemplate",
+    "appliesTo": [
+      "bpmn:UserTask"
+    ],
+    "properties": [
+      {
+        "label": "Form key",
+        "type": "String",
+        "binding": {
+          "type": "property",
+          "name": "camunda:formKey"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "type": "form.name"
+        }
+      }
+    ]
+  }
+]
