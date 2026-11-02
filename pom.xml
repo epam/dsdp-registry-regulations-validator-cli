@@ -24,7 +24,7 @@
     <camunda.version>7.24.0</camunda.version>
     <ddm-starter-logger.version>1.0.0-SNAPSHOT</ddm-starter-logger.version>
     <json-schema-validator.version>1.0.57</json-schema-validator.version>
-    <guava.version>33.0.0-jre</guava.version>
+    <guava.version>33.7.1-jre</guava.version>
     <commons-cli.version>1.4</commons-cli.version>
     <commons-io.version>2.21.0</commons-io.version>
     <commons-validator.version>1.10.1</commons-validator.version>
